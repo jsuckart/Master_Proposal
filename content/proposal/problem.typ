@@ -1,10 +1,8 @@
 #import "/utils/todo.typ": TODO
 
 = Problem
-#TODO[ // Remove this block
-  *Problem description*
-  - What is/are the problem(s)? 
-  - Identify the actors and use these to describe how the problem negatively influences them.
-  - Do not present solutions or alternatives yet!
-  - Present the negative consequences in detail 
-]
+Artemis currently does not provide dedicated support for presentations as part of its assessment workflow. As a result, instructors often have to rely on external tools such as spreadsheets, personal notes, or other improvised solutions to organize and assess presentations. This leads to fragmented workflows, where important presentation-related information is separated from the actual course environment.
+
+Instructors currently need to define assessment criteria manually, keep track of which students or teams have already presented, document the results, and transfer grades themselves. This not only increases the organizational effort, but also makes the process more prone to mistakes. In addition, tutors involved in the grading process may not always work with the same overview of criteria and results, which can lead to inconsistencies in the assessment. This then leads to students receiving less transparent feedback because presentation criteria and assessment results are not represented in the same structured way as other Artemis assessments.
+
+The problem is further complicated by different presentation contexts. Some presentations are directly linked to exercises, for example when students present a project submission. Other presentations are independent assessment components, such as seminar talks. Hybrid scenarios combine both forms, where both a submitted artifact and the presentation contribute to the final grade. Because of these different scenarios, a solution satisfying all these use cases and scenarios is needed.

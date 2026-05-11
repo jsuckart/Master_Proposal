@@ -2,11 +2,6 @@
 
 
 = Motivation
-#TODO[ // Remove this block
-  *Proposal Motivation*
-  - Outline why it is (scientifically) important to solve the problem
-  - Again use the actors to present your solution, but don't be to specific
-  - Do not repeat the problem, instead focus on the positive aspects when the solution to the problem is available
-  - Be visionary! 
-  - Optional: motivate with existing research, previous work 
-]
+Solving this problem is important because assessment quality depends on transparency, alignment, and meaningful feedback. Constructive alignment emphasizes that assessment should reflect the intended learning outcomes of a course @biggsEnhancingTeachingConstructive1996a. If oral communication, argumentation, or presentation of technical work are intended outcomes, then the platform should support these outcomes explicitly rather than forcing instructors into disconnected manual processes.
+
+Clearly defined and transparent assessment criteria are essential for both high-quality evaluation and helping students understand what is expected of them. Analytic rubrics, which structure assessment into specific criteria and performance levels, allow students to better grasp learning objectives, reflect on their own progress, and recognize areas that need improvement. In addition, they contribute to more consistent and reliable grading by making complex aspects of performance easier to assess. Previous research has shown that rubric-based formative assessment can support learning processes, increase transparency, and improve the quality of feedback students receive @nadolskiRubricFormatsFormative2021. For Artemis as a platform, this feature expands the existing assessment model and enables support for a wider variety of teaching scenarios beyond the currently available exercise types. In the long term, a generic concept for presentation assessment could also provide a basis for future assessment formats involving live, oral, or other performance-based evaluations.

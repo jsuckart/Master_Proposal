@@ -49,7 +49,7 @@
   align(center, text(font: fonts.sans, 2em, weight: 700, title))
   
 
-  align(center, text(font: fonts.sans, 2em, weight: 500, titleGerman))
+  align(center, text(font: fonts.sans, 1.45em, weight: 500, titleGerman))
 
   let entries = ()
   entries.push(("Author", author))
