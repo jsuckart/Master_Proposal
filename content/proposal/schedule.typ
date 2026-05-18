@@ -35,5 +35,5 @@ The fifth iteration focuses on integrating presentation results into the existin
 Related objective: 4.4
 
 == Iteration 6, Weeks 21-24: Stabilize the Feature
-The final iteration is dedicated to reviewing and improving the overall stability and usability of the feature.
+The final iteration focuses on improving the stability, usability, and maintainability of the implemented feature.
 Related objective: 4.1-4.4
