@@ -9,37 +9,45 @@
   - Ensure your goals are concrete and specific, avoiding generic statements. Clearly state what you aim to achieve.
   - Expand on each goal in a dedicated subsection. Repeat the corresponding enumerated bullet point number to maintain consistency and provide at least two paragraphs explaining the goal. Focus on being precise and specific in your descriptions.
 ]
-This thesis develops a generic presentation assessment feature for Artemis. In Figure 1 you can see how the actors will be interacting with the new assessment type. 
+This thesis develops a generic presentation assessment feature for Artemis. The feature supports workflows that instructors currently manage outside the platform, such as organizing presentations, defining grading criteria, and documenting assessment results. It also introduces new interactions between students, tutors, and instructors during the assessment process. Figure 1 shows the planned workflow and the involved user roles.
 #figure(
-  image("Use Case Diagram.png", width: 50%),
-  caption: [Use-Case-Diagram for Presentation Assessment]
-) The work is structured around four high-level objectives:
-+ Model Presentation Assessment
-+ Configure Presentation Criteria
-+ Implement Presentation Workflows
-+ Integrate Presentation Grading
+  image("Use Case Diagram.svg", width: 50%),
+  caption: [Use case diagram showing the interactions between students, tutors, and instructors with the presentation assessment feature.]
+) The following three objectives structure this thesis:
++ Design Configurable Presentation Assessments in Artemis
++ Implement Structured Presentation Grading and Feedback Workflows
++ Integrate Presentation Results into Existing Artemis Grading Processes
 
-== Model Presentation Assessment
-The first objective is to introduce presentations as a generic assessment concept within Artemis. The model should be flexible enough to represent presentations that are linked to exercises, exist independently of exercises, or are part of hybrid assessment scenarios. In addition, it should support both individual and team-based settings where needed. Figure 2 shows the proposed high-level class model for the presentation assessment concept.
+== Design Presentation Assessments in Artemis
+The first objective focuses on enabling instructors to configure presentation tasks within Artemis. 
+Instructors will be able to create presentation assessments, define grading criteria, configure grading settings, and connect presentations to courses or exercises. 
+The implementation will also support different presentation contexts, including standalone presentations, 
+exercise-linked presentations, and hybrid assessment scenarios.
+
+The configuration workflow will support both individual and team-based presentations. 
+Figure 2 illustrates the proposed high-level class model for the presentation assessment concept. 
+The design will remain flexible and extensible so that future assessment formats can reuse parts of the implementation.
 
 #figure(
-  image("Class Diagram.png", width: 80%),
-  caption: [Class-Diagram for the Presentation Model]
+  image("Class Diagram.svg", width: 110%),
+  caption: [Class diagram showing the core entities and relationships of the presentation assessment model.],
+  placement: auto,
 )
 
-This objective focuses on defining the core concept and its relationships. The overall design should remain extensible to allow future assessment formats to build upon and reuse parts of the concept.
 
-== Configure Presentation Criteria
-The second objective is to enable instructors to define grading criteria for presentations. These criteria should specify which aspects are assessed and how points are awarded. Typical examples include content quality, presentation structure, technical accuracy, time management, and ability to answer questions afterwards. Since presentations can serve different educational purposes depending on the course, the criteria need to be fully configurable.
+== Implement Grading and Feedback Workflows
+The second objective focuses on the presentation assessment workflow. Instructors and tutors will be able to assess presentations 
+directly within Artemis by using the previously defined grading criteria. The workflow will support entering scores and written feedback for 
+individual criteria and automatically calculate the resulting assessment. This allows presentation assessments to follow a structured 
+process that students can comprehend. This aligns with the idea that effective feedback depends on clear goals, transparent success criteria, 
+and information about the gap between current and desired performance @PowerFeedbackJohn.
 
-The feature should also promote transparent assessment by making the grading criteria visible during the evaluation process. This aligns with the idea that effective feedback depends on clear goals, transparent success criteria, and information about the gap between current and desired performance @PowerFeedbackJohn. Therefore, the criteria mechanism should not only support point allocation but also provide instructors and tutors with a shared and consistent assessment framework.
+The implementation will integrate into the existing course and exercise administration interfaces of Artemis. 
+The expected outcome of this objective is a structured assessment workflow that covers the complete grading process from opening an assessment to 
+submitting the final result. Long-term storage and display of assessment results are not part of this objective as this falls within the scope of Objective 4.3.
 
-== Implement Presentation Workflows
-The third objective is to implement workflows that allow instructors to create and manage presentations within Artemis. These workflows should integrate into the existing course and exercise administration views so that instructors can handle the entire process directly in the platform, without the need for external tools.
+== Integrate Results into the Grading Processes
+The third objective focuses on integrating presentation assessment results into the existing Artemis grading and result system. 
+If a presentation is linked to an exercise, the result should appear alongside or contribute to the corresponding exercise. If a presentation is standalone, the result should still remain accessible through an appropriate course-level view. Reusing established Artemis workflows and interfaces promotes consistency and contributes to a familiar user experience, which can positively influence the effective use of educational technology @vlachogianniPerceivedUsabilityEvaluation2023.
 
-The interface should follow the existing design and interaction patterns of Artemis. Thereby it should provide a familiar user experience, because perceived usability  plays an important role in the effective use of educational technology and learning outcomes @vlachogianniPerceivedUsabilityEvaluation2023.
-
-== Integrate Presentation Grading
-The fourth objective is to integrate presentation results into existing Artemis grading workflows. The implementation should store presentation grades consistently and display them in the same course and exercise contexts as other assessment results. The integration should avoid duplicating grading logic and should respect existing Artemis concepts for courses, exercises, participants, teams, and results.
-
-This objective also includes validation and testing of the implemented feature. The feature should demonstrate that instructors can complete the full workflow from configuration to grading. The final implementation should be technically robust, reusable, and extensible for later improvements.
+This objective covers the storage, and retrieval of presentation assessment results through the same interfaces that already handle existing exercises or data. The implementation integrates presentation assessments into existing Artemis grading functionality. Presentation assessments become a regular part of the grading infrastructure, and users can access grades and feedback without relying on separate tools or interfaces.

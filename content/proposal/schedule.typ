@@ -12,28 +12,40 @@
 
 #show heading.where(level: 2): set heading(numbering: none)
 
-The Master’s thesis starts on 25. May 2026 and ends on 25. October 2026. The implementation is planned in six iterations of approximately four weeks each.
+The Master’s thesis starts on 29. June 2026 and ends on 29. December 2026. The schedule divides the implementation into six iterations of approximately four weeks each.
 
-== Iteration 1, Weeks 1-4: Creating the Basic Presentation Model
-The first iteration focuses on creating the basic structure for presentation assessments in Artemis. This includes defining the main presentation-related entities and their relationships, as well as adding the required database functionality for storing presentation configurations. Instructors should also be able to create and view simple presentation configurations through an initial user interface.
+== Iteration 1, Weeks 1–4: Minimal Course-Level Presentation Assessment
+- Implement a first end-to-end workflow for creating a simple course-level presentation assessment
+- Add the required backend, database, and user interface functionality for this minimal version
+- Validate the workflow with a basic instructor scenario
 Related objective: 4.1
 
-== Iteration 2, Weeks 5-8: Support Exercise-Linked Presentations
-In the second iteration, presentations will be extended so that they can also be connected to existing exercises. The implementation should integrate into the current exercise administration views in Artemis while still supporting standalone presentations. The goal is to keep both approaches consistent within one shared concept.
-Related objective: 4.1 and 4.3
+== Iteration 2, Weeks 5–8: Extend Presentation Contexts
+- Extend the first version to support exercise-linked presentation assessments
+- Keep course-level and exercise-linked presentations within one consistent workflow
+- Refine the initial data model and user interface based on the first iteration
+Related objective: 4.1
 
-== Iteration 3, Weeks 9–12: Adding Configurable Assessment Criteria
-The third iteration focuses on presentation grading criteria. Instructors should be able to define assessment criteria and assign points to them. These criteria will then become part of the grading workflow to support structured and transparent assessments.
+== Iteration 3, Weeks 9–12: Add Basic Grading Criteria
+- Add configurable grading criteria to the existing presentation assessment workflow
+- Allow instructors to define criteria and assign point values
+- Validate whether the criteria configuration works for standalone and exercise-linked presentations
+Related objectives: 4.1 and 4.2
+
+== Iteration 4, Weeks 13–16: Add Assessment and Feedback 
+- Extend the workflow so instructors and tutors can assess presentations using the configured criteria
+- Support grading for individual students and teams
+- Review and refine the configuration workflow based on the assessment use case
 Related objective: 4.2
 
-== Iteration 4, Weeks 13-16: Assess Presentations
-During this iteration, the actual grading workflow will be implemented for instructors and tutors. The system should support assessing both individual students and teams based on the configured criteria. Assessment results should also be stored and accessible within Artemis.
-Related objectives: 4.3 and 4.4
+== Iteration 5, Weeks 17–20: Integrate Results and Refine Existing Workflows
+- Integrate presentation results into existing Artemis grading and result views
+- Check whether instructors, tutors, and students can access grades and feedback through existing workflows
+- Use findings from the integration step to refine earlier configuration and assessment workflows
+Related objective: 4.3
 
-== Iteration 5,0 Weeks 17–20: Integrate Results into Grading + Puffer
-The fifth iteration focuses on integrating presentation results into the existing grading and result views of Artemis. Presentation grades should appear in the expected course and exercise contexts. I expect this to not take up the entire four weeks, so the remaining time can be used to continue work on the final iteration or to complete tasks that were postponed during earlier phases of the project.
-Related objective: 4.4
-
-== Iteration 6, Weeks 21-24: Stabilize the Feature
-The final iteration focuses on improving the stability, usability, and maintainability of the implemented feature.
-Related objective: 4.1-4.4
+== Iteration 6, Weeks 21–24: Stabilization, Testing, and Final Validation
+- Improve usability, error handling, and maintainability across all implemented workflows
+- Complete automated backend and frontend tests for the main scenarios
+- Validate the full feature with course-level, exercise-linked, and hybrid presentation scenarios
+Related objectives: 4.1–4.3
