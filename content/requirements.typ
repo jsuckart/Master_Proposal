@@ -3,25 +3,30 @@
 
 = Requirements
 #TODO[
-  This chapter follows the Requirements Analysis Document Template in @bruegge2004object. Important: Make sure that the whole chapter is independent of the chosen technology and development platform. The idea is that you illustrate concepts, taxonomies and relationships of the application domain independent of the solution domain! Cite @bruegge2004object several times in this chapter.
+  This chapter follows the Requirements Analysis Document Template in @bruegge:2010:ObjectorientedSoftwareEngineering. Important: Make sure that the whole chapter is independent of the chosen technology and development platform. The idea is that you illustrate concepts, taxonomies and relationships of the application domain independent of the solution domain! Cite @bruegge:2010:ObjectorientedSoftwareEngineering several times in this chapter.
 
 ]
+
+This chapter specifies the requirements of the proposed presentation assessment system from the perspective of the application domain. Following the requirements analysis approach by Brügge and Dutoit @bruegge:2010:ObjectorientedSoftwareEngineering, the chapter describes the system independently of implementation technologies and distinguishes functional requirements, quality attributes, and constraints. The subsequent system models refine these requirements by describing user interactions, domain concepts, and system behavior.
 
 == Overview
 #TODO[
   Provide a short overview about the purpose, scope, objectives and success criteria of the system that you like to develop.
 ]
+Presentation assessments represent performance-based assessment activities in which students demonstrate competencies through an oral presentation. In the context of this thesis, this process comprises the configuration of a presentation, the definition of assessment criteria, the assessment of a presentation itself, and the communication of the resulting scores and feedback to students. The proposed system aims to support this complete assessment process within a digital learning environment.
 
-== Existing System
-#TODO[
-  This section is only required if the proposed system (i.e. the system that you develop in the thesis) should replace an existing system.
-]
+The system addresses three main objectives. First, instructors can configure presentation assessments for different assessment contexts and define the criteria used for grading. Second, instructors and tutors can conduct structured assessments based on these predefined criteria and provide corresponding feedback. Third, the system makes the resulting scores and feedback accessible within the existing course and assessment context. The system supports both individual students and teams as participants in presentation assessments. The scope focuses on the assessment and evaluation process itself rather than giving the presentation.
 
-== Proposed System
+== Requirements
 #TODO[
   If you leave out the section “Existing system”, you can rename this section into “Requirements”.
 ]
+ == Requirements
+The proposed system introduces presentation assessments as a distinct assessment concept for performance that students demonstrate during presentations. A presentation assessment defines the conditions under which a presentation is evaluated and provides a common basis for its configuration, assessment, and resulting feedback. It can exist independently at course level or complement an existing exercise when a presentation forms part of a broader assessment activity.
 
+Instructors define the assessment structure before the presentation takes place. This structure consists of assessment criteria that specify the aspects of the presentation to be evaluated and the points available for each criterion. During the assessment, instructors or tutors evaluate the presentation according to this predefined structure and record criterion-specific scores and feedback. The individual evaluations form the presentation result, which makes both the achieved score and the corresponding feedback available to the assessed students.
+
+This concept separates the presentation assessment itself from its particular context. The same assessment process can therefore support presentations with different purposes while maintaining a common structure for configuration, assessment, and results. The following functional requirements specify the capabilities required to support this process. The subsequent quality attributes and constraints define the properties and boundaries that apply to these capabilities.
 === Functional Requirements
 #TODO[
   List and describe all functional requirements of your system. Also mention requirements that you were not able to realize. The short title should be in the form “verb objective”
@@ -34,7 +39,7 @@
 
 === Quality Attributes
 #TODO[
-  List and describe all quality attributes of your system. All your quality attributes should fall into the URPS categories mentioned in @bruegge2004object. Also mention requirements that you were not able to realize.
+  List and describe all quality attributes of your system. All your quality attributes should fall into the URPS categories mentioned in @bruegge:2010:ObjectorientedSoftwareEngineering. Also mention requirements that you were not able to realize.
 
   You can use the QA macro to create a new quality attribute:
   #QA("Category")[Short Description]
@@ -77,7 +82,7 @@
 
 === Analysis Object Model
 #TODO[
-  This subsection should contain a UML Class Diagram showing the most important objects, attributes, methods and relations of your application domain including taxonomies using specification inheritance (see @bruegge2004object). Do not insert objects, attributes or methods of the solution domain. *Important:* Make sure to describe the analysis object model thoroughly in the text so that readers are able to understand the diagram. Also write about the rationale how and why you modeled the concepts like this.
+  This subsection should contain a UML Class Diagram showing the most important objects, attributes, methods and relations of your application domain including taxonomies using specification inheritance (see @bruegge:2010:ObjectorientedSoftwareEngineering). Do not insert objects, attributes or methods of the solution domain. *Important:* Make sure to describe the analysis object model thoroughly in the text so that readers are able to understand the diagram. Also write about the rationale how and why you modeled the concepts like this.
 
 ]
 
