@@ -15,7 +15,7 @@
   Summarize the achieved goals by repeating the realized requirements or use cases stating how you realized them.
 ]
 
-=== Open Goals
+=== Open Goals <open-goals>
 #TODO[
   Summarize the open goals by repeating the open requirements or use cases and explaining why you were not able to achieve them. Important: It might be suspicious, if you do not have open goals. This usually indicates that you did not thoroughly analyze your problems.
 ]
