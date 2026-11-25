@@ -45,7 +45,7 @@ The functional requirements describe the interactions between the system and its
 #FR("Link Presentation Task to Exercise")[An instructor can link a presentation task to an exercise of the same course. Without a link, the presentation task stands alone within the course.]
 #FR("Select Grading Method")[An instructor can select one grading method for each presentation task: pass/fail, score, or rubric. The grading method remains fixed after the creation of the presentation task.]
 #FR("Define Maximum Score")[An instructor can define the maximum number of points for a presentation task with the score method.]
-#FR("Define Rubric")[An instructor can define the rubric of a presentation task with the rubric method. A rubric consists of weighted criteria, each with a name, an optional description, and a rating scale with optional level descriptions. The weights of all criteria sum up to 100 %.]
+#FR("Define Rubric")[An instructor can define the rubric of a presentation task with the rubric method. A rubric consists of weighted criteria, each with a name, an optional description, and a rating scale with optional level descriptions. The weights of all criteria sum up to 100~%.]
 #FR("Adapt Rubric")[An instructor can adapt the rubric of a presentation task. Before the first assessment, the instructor can replace the complete rubric. Afterwards, the instructor can change only the texts and weights of the criteria, and the system recalculates the results of all assessed presentations.]
 #FR("Manage Presentation Tasks")[An instructor can edit and delete presentation tasks and remove presentations from a presentation task.]
 #FR("Schedule Presentation")[An instructor or tutor can schedule the presentation of a student for a presentation task and specify date, time, language, and whether the presentation takes place in person or online, together with the location or the meeting link.]
@@ -72,7 +72,7 @@ The quality attributes describe how well the system fulfills its functional requ
 
 #QA("Usability")[The system follows the interaction patterns, layouts, and terminology of the learning platform, so that instructors and tutors can use it without additional training.]
 #QA("Usability")[The system guides instructors step by step through the configuration of a presentation task and asks only for the information that the selected grading method requires.]
-#QA("Usability")[The system validates inputs immediately and explains invalid entries, for example criterion weights that do not sum up to 100 % or points above the maximum.]
+#QA("Usability")[The system validates inputs immediately and explains invalid entries, for example criterion weights that do not sum up to 100~% or points above the maximum.]
 #QA("Reliability")[The system rejects changes that rely on an outdated state, so that concurrent changes to a presentation task and its assessments never produce inconsistent results, such as a score calculated with outdated weights.]
 #QA("Reliability")[The system restricts every action to the roles that need it: instructors configure presentation tasks, tutors assess presentations, and students view only their own results.]
 #QA("Performance")[The system remains responsive in courses with more than 2,000 students.]
@@ -89,7 +89,7 @@ The quality attributes describe how well the system fulfills its functional requ
   #C("Category")[Short Description]
 ]
 
-The constraints describe conditions that the environment of the system and the scope of the thesis imposes on its realization.
+The constraints describe conditions that the environment of the system and the scope of the thesis impose on its realization.
 
 #C("Implementation")[The system extends Artemis and reuses its course structure, user roles, and user interface components.]
 #C("Implementation")[The realization follows the development guidelines of Artemis, including its guidelines for inclusive language and terminology.]
@@ -206,7 +206,7 @@ Instructors and tutors reach the presentation assessment feature through the ent
   caption: [Creation of a presentation task],
 ) <ui-create>
 
-The button "Create Presentation" opens a dialog that guides an instructor through three steps: the details, the assessment method, and the configuration (@ui-create). In the first step, the instructor enters the title, the description and optionally links an exercise (FR1, FR2). In the second step, the instructor selects one of the three grading methods, each with a short explanation (FR3). The third step depends on the grading method: for the score method, the instructor enters the maximum number of points (FR4), and for the rubric method, the instructor defines the criteria with their names, descriptions, weights, and rating scales (FR5). The pass/fail method skips this step. The dialog asks only for the information that the selected grading method requires (QA2). For the rubric, a bar above the criteria shows the total weight and indicates whether the weights sum up to 100 % before the instructor saves it (QA3).
+The button "Create Presentation" opens a dialog that guides an instructor through three steps: the details, the assessment method, and the configuration (@ui-create). In the first step, the instructor enters the title, the description and optionally links an exercise (FR1, FR2). In the second step, the instructor selects one of the three grading methods, each with a short explanation (FR3). The third step depends on the grading method: for the score method, the instructor enters the maximum number of points (FR4), and for the rubric method, the instructor defines the criteria with their names, descriptions, weights, and rating scales (FR5). The pass/fail method skips this step. The dialog asks only for the information that the selected grading method requires (QA2). For the rubric, a bar above the criteria shows the total weight and indicates whether the weights sum up to 100~% before the instructor saves it (QA3).
 
 #figure(
   image("/figures/screenshots/assess.png", width: 80%),
