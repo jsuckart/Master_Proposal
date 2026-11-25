@@ -75,7 +75,7 @@ The quality attributes describe how well the system fulfills its functional requ
 #QA("Usability")[The system validates inputs immediately and explains invalid entries, for example criterion weights that do not sum up to 100~% or points above the maximum.]
 #QA("Reliability")[The system rejects changes that rely on an outdated state, so that concurrent changes to a presentation task and its assessments never produce inconsistent results, such as a score calculated with outdated weights.]
 #QA("Reliability")[The system restricts every action to the roles that need it: instructors configure presentation tasks, tutors assess presentations, and students view only their own results.]
-#QA("Performance")[The system remains responsive in courses with more than 2,000 students.]
+#QA("Performance")[The overview of all presentations of a course loads within two seconds in a course with 2,000 students#footnote[The Artemis performance guidelines name 2,000 students as the course size that tests should simulate: https://docs.artemis.tum.de/developer/guidelines/performance\#test-with-realistic-data-loads (accessed 2026-11-25).], each of whom has a presentation for each of three presentation tasks.]
 #QA("Supportability")[The system allows adding further grading methods, such as custom rating scales, without changing the configuration and assessment workflow.]
 
 === Constraints
