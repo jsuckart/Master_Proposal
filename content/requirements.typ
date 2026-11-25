@@ -2,6 +2,7 @@
 #import "/utils/fr_qa_c.typ": FR, QA, C
 #import "/figures/use_case_diagram.typ": use-case-diagram
 #import "/figures/analysis_object_model.typ": analysis-object-model
+#import "/figures/activity_diagram.typ": activity-diagram
 
 = Requirements
 #TODO[
@@ -169,7 +170,54 @@ The operations correspond to the use cases of @use-case-diagram. The operation u
   This subsection should contain dynamic UML diagrams. These can be a UML state diagrams, UML communication diagrams or UML activity diagrams.*Important:* Make sure to describe the diagram and its rationale in the text. *Do not use UML sequence diagrams.*
 ]
 
+The dynamic model describes the behavior of the presentation assessment feature @bruegge:2010:ObjectorientedSoftwareEngineering. @activity-diagram shows the presentation assessment workflow as a UML activity diagram.
+
+#figure(
+  activity-diagram,
+  caption: [Presentation assessment workflow],
+) <activity-diagram>
+
+An instructor starts the workflow with the details of a presentation task and selects its grading method. Depending on the grading method, the instructor defines the maximum number of points or the rubric, while the pass/fail method requires no further configuration. A tutor then schedules the presentation of a student. The student submits material and delivers the presentation, and the tutor assesses it afterwards. For the rubric method, the system calculates the rubric score from the selected rating levels. Finally, the student views the result and the feedback. Grey activities correspond to requirements that the presentation assessment feature does not fulfill yet (FR9, FR15).
+
+The workflow spans three roles, and the order of their activities matters: a tutor can assess a presentation only after an instructor has configured the presentation task, and a student can view a result only after the assessment. Instructors can perform all activities of tutors, which @use-case-diagram expresses as a generalization of the actor tutor.
+
 === User Interface
 #TODO[
   Show mockups of the user interface of the software you develop and their connections / transitions. You can also create a storyboard. *Important:* Describe the mockups and their rationale in the text.
 ]
+
+This subsection presents the user interface of the presentation assessment feature and the transitions between its views. For the student view, which the presentation assessment feature does not provide yet, @ui-student shows a mockup.
+
+#figure(
+  image("/figures/screenshots/overview.png", width: 100%),
+  caption: [Overview of all presentations of a course],
+) <ui-overview>
+
+Instructors and tutors reach the presentation assessment feature through the entry "Presentations" in the navigation of the course (@ui-overview). The sidebar groups the presentation tasks into standalone presentations and presentations linked to an exercise, and the entry "Overall overview" lists the presentations of all presentation tasks. Counters above the table show the total number of presentations and how many of them are assessed or pending. The table shows the presenter, the presentation task, the date, the status, the result in the form of the grading method, and the assessor of each presentation, and tutors can search and filter it (FR14). The view follows the layout of other management views of the learning platform, such as the sidebar and the table, so that instructors and tutors can rely on familiar interaction patterns (QA1).
+
+#figure(
+  grid(
+    columns: 2,
+    column-gutter: 1em,
+    align: top,
+    [#image("/figures/screenshots/create-method.png") (a) Assessment method],
+    [#image("/figures/screenshots/create-rubric.png") (b) Rubric configuration],
+  ),
+  caption: [Creation of a presentation task],
+) <ui-create>
+
+The button "Create Presentation" opens a dialog that guides an instructor through three steps: the details, the assessment method, and the configuration (@ui-create). In the first step, the instructor enters the title, the description and optionally links an exercise (FR1, FR2). In the second step, the instructor selects one of the three grading methods, each with a short explanation (FR3). The third step depends on the grading method: for the score method, the instructor enters the maximum number of points (FR4), and for the rubric method, the instructor defines the criteria with their names, descriptions, weights, and rating scales (FR5). The pass/fail method skips this step. The dialog asks only for the information that the selected grading method requires (QA2). For the rubric, a bar above the criteria shows the total weight and indicates whether the weights sum up to 100 % before the instructor saves it (QA3).
+
+#figure(
+  image("/figures/screenshots/assess.png", width: 80%),
+  caption: [Assessment of a presentation with a rubric],
+) <ui-assess>
+
+The button "Enter Grade" in the view of a presentation task opens the dialog of a new presentation, which combines the scheduling and the assessment (@ui-assess). The upper part holds the presenter, the date, the language, and the mode, together with the location or the meeting link (FR8). The lower part depends on the grading method and holds the pass/fail decision, the points, or one rating level per criterion with an optional comment (FR10). For the rubric method, the dialog previews the rubric score while the assessor selects the rating levels (FR11). A general remark holds the written feedback for the student. A tutor can schedule a presentation first and assess it later in the same dialog, or schedule and assess it in one step after the presentation has taken place.
+
+#figure(
+  image("/figures/screenshots/student-view-mockup.png", width: 100%),
+  caption: [Mockup of the student view],
+) <ui-student>
+
+@ui-student shows the mockup of the student view. The entry "Presentations" in the course lists the presentations of a student with their dates and status, and the student can filter them by upcoming and assessed presentations. The detail view shows the date, the time, the format, and the language of a presentation, together with the meeting link for online presentations. After the assessment, it shows the result and the feedback, including the selected rating level and the comment for each criterion (FR15). The student can also upload material for the presentation, such as slides (FR9). The view mirrors the overview of instructors and tutors, so that both sides use the same structure and terms.

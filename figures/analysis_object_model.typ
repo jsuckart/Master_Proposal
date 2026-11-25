@@ -19,10 +19,10 @@
 #let small(t) = text(size: 7pt, t)
 
 // Association with optional multiplicities at both ends and an optional role name
-#let assoc(a, b, ma: none, mb: none, role: none, ..args) = {
+#let assoc(a, b, ma: none, mb: none, role: none, pa: 0.08, pb: 0.92, ..args) = {
   edge(a, b, stroke: 0.6pt + line-color, ..args)
-  if ma != none { edge(a, b, stroke: none, label: small(ma), label-pos: 0.08, label-side: left, ..args) }
-  if mb != none { edge(a, b, stroke: none, label: small(mb), label-pos: 0.92, label-side: left, ..args) }
+  if ma != none { edge(a, b, stroke: none, label: small(ma), label-pos: pa, label-side: left, ..args) }
+  if mb != none { edge(a, b, stroke: none, label: small(mb), label-pos: pb, label-side: left, ..args) }
   if role != none { edge(a, b, stroke: none, label: small(role), label-pos: 0.5, label-side: left, ..args) }
 }
 
@@ -41,7 +41,7 @@
       cls((3, 1), [Criterion], <criterion>, attrs: ([name], [description], [weight], [scale]))
       cls((4.6, 1), [Rating Level], <level>, attrs: ([description],))
 
-      cls((-0.6, 2.3), [User], <user>)
+      cls((-0.9, 2.3), [User], <user>)
       cls((1, 2.3), [Presentation], <presentation>,
         attrs: ([presentationDate], [language], [mode], [location], [meetingLink],
           [passed], [resultPoints], [rubricScore], [remark]),
@@ -49,7 +49,7 @@
       cls((3, 2.3), [Rating], <rating>, attrs: ([comment],))
 
       assoc(<course>, <task>, mb: [\*])
-      assoc(<exercise>, <task>, ma: [0..1], mb: [\*])
+      assoc(<exercise>, <task>, ma: [0..1], mb: [\*], pa: 0.25)
       assoc(<task>, <criterion>, mb: [\*])
       assoc(<criterion>, <level>, mb: [\*])
       assoc(<task>, <presentation>, mb: [\*])
@@ -58,8 +58,8 @@
       assoc(<rating>, <level>, ma: [\*], corner: left)
 
       assoc(<presentation>, <user>, ma: [\*], role: [student], shift: -14pt)
-      assoc(<presentation>, <user>, ma: [\*], mb: [0..1], role: [assessor])
-      assoc(<presentation>, <user>, ma: [\*], mb: [0..1], role: [gradedBy], shift: 14pt)
+      assoc(<presentation>, <user>, ma: [\*], mb: [0..1], role: [assessor], pb: 0.86)
+      assoc(<presentation>, <user>, ma: [\*], mb: [0..1], role: [gradedBy], shift: 14pt, pb: 0.86)
     },
   )
 }
