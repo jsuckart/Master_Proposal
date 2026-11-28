@@ -39,15 +39,21 @@ Presentation Management provides the Presentation API. It creates, changes, and 
 
 Presentation Management uses three existing subsystems of Artemis. Course Management provides the settings of a course, which the feature extends with the setting that enables presentation assessments. Exercise Management finds the exercises of a course that a presentation task can link to, and User Management finds the students of a course who can deliver a presentation. Both new server subsystems store their data in the relational database of Artemis.
 
-== Hardware Software Mapping
-#TODO[
-  This section describes how the subsystems are mapped onto existing hardware and software components. The description is accompanied by a UML deployment diagram. The existing components are often off-the-shelf components. If the components are distributed on different nodes, the network infrastructure and the protocols are also described.
-]
-
 == Persistent Data Management
-#TODO[
-  Optional section that describes how data is saved over the lifetime of the system and which data. Usually this is either done by saving data in structured files or in databases. If this is applicable for the thesis, describe the approach for persisting data here and show a UML class diagram how the entity objects are mapped to persistent storage. It contains a rationale of the selected storage scheme, file system or database, a description of the selected database and database administration issues.
-]
+The presentation assessment feature keeps all of its data in the relational database that Artemis already uses. @persistent-data shows the entities that the feature adds or changes, together with the existing entities they reference. Artemis maps each entity to a table, and database migrations create and change these tables. PresentationAssessment stores a presentation task and PresentationAssessmentInstance a presentation, and three further entities store the criteria, rating levels, and ratings of a rubric.
+
+#figure(
+  image("/figures/persistent_data_management.svg", width: 100%),
+  caption: [Persistent entities of the presentation assessment feature],
+) <persistent-data>
+
+Each presentation stores its result in the attribute of its grading method: passed for pass/fail, resultPoints for the score method, and rubricScore for a rubric. The other two attributes remain empty.
+
+The rubric of a presentation task consists of three entities in separate tables instead of a single column with a structured document. Separate tables allow the database to enforce the structure of a rubric: unique indexes keep the positions of criteria and rating levels distinct and allow at most one rating per criterion and presentation. The position preserves the order that the instructor defines. The grading method and the rating scale are enumerations, which the database stores as text in a column of the presentation task and the criterion. The number of rating levels follows from the scale and is not stored.
+
+The version of a presentation task detects concurrent changes, as DG3 describes. A further unique index ensures that each student has at most one presentation per presentation task. The references to the assessor and to the person who last changed the result are optional.
+
+The database removes dependent data itself through its foreign keys, and the compositions in @persistent-data mark these dependencies. Deleting a course deletes its presentation tasks, deleting a presentation task deletes its presentations and its rubric, and deleting a presentation deletes its ratings. The server therefore deletes only the presentation task or the presentation itself and leaves the dependent rows to the database. Deleting an exercise removes only the link, so that the presentation task remains in the course as a standalone presentation task.
 
 == Access Control
 #TODO[
@@ -59,7 +65,7 @@ Presentation Management uses three existing subsystems of Artemis. Course Manage
   Optional section describing the control flow of the system, in particular, whether a monolithic, event-driven control flow or concurrent processes have been selected, how requests are initiated and specific synchronization issues
 ]
 
-== Boundry Conditions
+== Boundary Conditions
 #TODO[
   Optional section describing the use cases how to start up the separate components of the system, how to shut them down, and what to do if a component or the system fails.
 ]
